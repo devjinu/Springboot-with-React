@@ -1,25 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 
+// 1. return시에 하나의 Dom만 리턴할 수 있다
+// 2. 변수선언은 let 혹은 const로만 해야함
+
+let a= 10; // 변수
+const b = 20; // 상수
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div>
+            <div>안녕{a}</div>
+            <h1>헤딩태크{b}</h1>
+        </div>
+    );
 }
 
 export default App;
