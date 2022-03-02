@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // concat, filter, map, slice, 스프레드(전개) 연산자
+
+    // 1. 스프레드 연산자
+    console.log("1. ------------------ 스프레드 연산자");
+    const a = [1, 2, 3];
+    const b = [...a];
+    b.push(4); // b의 데이터 변경
+    console.log(`a의 값은 : ${a}`); // 1, 2, 3
+    console.log(`b의 값은 : ${b}`); // 1, 2, 3, 4
+
+
+    // 2,  concat 추가
+    console.log("2. ------------------ concat 추가");
+    const a2 = [1, 2, 3];
+    const b2 = a2.concat(4); // a2에 추가된 값이 b2에 들어감
+    console.log(`a의 값은 : ${a}`); // 1, 2, 3
+    console.log(`b의 값은 : ${b}`); // 1, 2, 3, 4
+
+    const c2 = [0, ...a2, 4];
+    console.log(`c2의 값은 : ${c2}`); // 1, 2, 3, 4
+
+    // 3. filter 걸러내기
+    console.log("3. ------------------ filter 걸러내기"); // 삭제하기
+    const a3 = [1, 2, 3];
+    const b3 = a3.filter((n) => {
+        return n != 1;
+    }); // boolean을 return -> true만 걸러낸다
+    console.log(`b3의 값은 : ${b3}`); // 2, 3
+
+    // 4. slice 잘라내기
+    console.log("4. ------------------ slice 잘라내기");
+    const a4 = [1, 2, 3];
+    const b4 = a4.slice(0, 2);
+    console.log(`b4의 값은 : ${b4}`); // [1, 2]
+    const c4 = [...a4.slice(0, 2)]
+    const d4 = [a4.slice(0, 2)]
+    console.log(c4); // [1,2]
+    console.log(d4); // [[1,2]]
+
+    // 5. map 반복하기
+    console.log("4. ------------------ map 반복하기");
+    const a5 = [1, 2, 3];
+    /*    for(let i=0; i<a5.length; i++){
+            console.log(a5[i]);
+        }*/
+  /*  a5.forEach((n)=>{
+        console.log(n);
+    }) -> 리턴 못함 */
+
+    const b5 = a5.map((n)=> n); // === const b5 = [...a5];
+    console.log(b5);
+
+    const a6 = {id:1, name:"홍길동"};
+    const b6 = {...a6,name:"임꺽정"};
+    console.log(b6);
+
+    const users=[
+    {id:1, name:"홍길동", phone:"010-2222-2222"},
+    {id:2, name:"이순신", phone:"010-3333-3333"}
+    ];
+
+    const updateUserDto={
+        id:2, name:"임꺽정"
+    }
+    // users[1].name =updateUserDto.name;
+
+    const newUser = users.map(u=> u.id=== updateUserDto.id? {...u, ...updateUserDto}: u);
+    console.log(newUser);
+</script>
+</body>
+</html>

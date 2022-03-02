@@ -17,14 +17,17 @@ function App() {
     let d = undefined;
     console.log(1, c);
 
-    const myStyle ={
-      color: "red",
-    };
+    const myStyle = {
+        color: "red",
+    }
+
+    let list = [1, 2, 3];
 
     return (
         <div>
             <div style={myStyle}>안녕{a === 10 ? " a는 10입니다." : " a는 10이 아닙니다."}</div>
             <h1 className={"box-style"}>헤딩태크{b === 20 && '20입니다'}</h1>
+            <div> {list.map(n => <h1>{n}</h1>)}</div>
             <hr/>
         </div>
     );
